@@ -21,12 +21,13 @@ func _ready():
 	
 	init(100.0)
 
-func digUpdate():
-	visible = Global.is_digging
-	if not Global.is_digging:
+func digUpdate(value):
+	visible = value
+	if not value:
 		Global.update_last_dug_infos(health, damage_dealt, zombied)
 
 func _physics_process(delta):
+	print(str(Global.tombs))
 	if Global.is_digging:
 		var digging = Input.is_action_just_pressed("interact")
 		if digging and !monster_spawn:
@@ -41,7 +42,7 @@ func init(wanted_health) :
 	treasure_spawn = 0
 	zombied = false
 	
-func update_display(current_health,current_damage_dealt):
+func update_display(current_health,current_damage_dealt,curr_zombied):
 	if current_health <= MAX_HP and current_health > 75 :
 		%GraveLayers.current_layer = 0
 		%GraveLayers.update_layers()
@@ -62,6 +63,7 @@ func update_display(current_health,current_damage_dealt):
 	damage_dealt = current_damage_dealt;
 	monster_spawn = 0
 	treasure_spawn = 0
+	zombied = curr_zombied
 
 func dig():
 	if health > 0:
