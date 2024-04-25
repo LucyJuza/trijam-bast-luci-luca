@@ -27,7 +27,7 @@ func digUpdate(value):
 		Global.update_last_dug_infos(health, damage_dealt, zombied)
 
 func _physics_process(delta):
-	print(str(Global.tombs))
+	#print(str(Global.tombs))
 	if Global.is_digging:
 		var digging = Input.is_action_just_pressed("interact")
 		if digging and !monster_spawn:

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bclaci0plqmfy"]
 
 [ext_resource type="Texture2D" uid="uid://dvll3f7rnfe5m" path="res://assets/tiles/urizen_onebit_tileset__v2d0.png" id="1_sxlif"]
-[ext_resource type="AudioStream" uid="uid://bm7m3crosmo8l" path="res://sound/running_gravel.wav" id="2_10p8e"]
+[ext_resource type="AudioStream" uid="uid://cwyr8mnwixggn" path="res://sound/running_gravel.wav" id="2_10p8e"]
 
 [sub_resource type="GDScript" id="GDScript_4a2ub"]
 script/source = "extends Node2D

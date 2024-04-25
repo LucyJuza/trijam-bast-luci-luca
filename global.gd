@@ -27,16 +27,16 @@ func update_score(scoreUp):
 	score_updated.emit()
 	
 func dig(tile_position: Vector2i):
-	print("started digging")
+	#print("started digging")
 	var flag = false;
 	for tomb in tombs:
 		if tomb["pos"] == tile_position:
-			print("found tomb: " + str(tomb))
+			#print("found tomb: " + str(tomb))
 			flag = true;
 			grave_screen_updated.emit(tomb["hps"],tomb["damages_dealt"],tomb["zombied"])
 			if (tomb["hps"] > 0) and (not tomb["zombied"]):
-				print("status of zombied for: " + str(tomb["zombied"]))
-				print("is not zombied and hps > 0")
+				#print("status of zombied for: " + str(tomb["zombied"]))
+				#print("is not zombied and hps > 0")
 				is_digging = true
 			else: is_digging = false
 			lastDugTomb = tomb
@@ -54,7 +54,7 @@ func stop_digging():
 	digging_updated.emit(is_digging )
 
 func update_last_dug_infos(hps,damages,zombied):
-	print("last dug is: " + str(lastDugTomb))
+	#print("last dug is: " + str(lastDugTomb))
 	for tomb in tombs:
 		if tomb["pos"] == lastDugTomb["pos"]:
 			tomb["hps"] = hps
