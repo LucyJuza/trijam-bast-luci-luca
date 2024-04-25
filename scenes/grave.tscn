@@ -434,6 +434,7 @@ texture_region_size = Vector2i(12, 12)
 8:5/0 = 0
 9:5/0 = 0
 10:5/0 = 0
+10:5/0/custom_data_1 = true
 11:5/0 = 0
 12:5/0 = 0
 13:5/0 = 0
@@ -6686,6 +6687,8 @@ texture_region_size = Vector2i(12, 12)
 tile_size = Vector2i(12, 12)
 custom_data_layer_0/name = "diggable"
 custom_data_layer_0/type = 1
+custom_data_layer_1/name = "walkable"
+custom_data_layer_1/type = 1
 sources/0 = SubResource("TileSetAtlasSource_emjmo")
 sources/1 = SubResource("TileSetAtlasSource_wsdf1")
 
