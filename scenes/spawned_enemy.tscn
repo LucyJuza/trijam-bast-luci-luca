@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://drfiue20ljadi"]
+
+[node name="SpawnedEnemy" type="Node2D"]
