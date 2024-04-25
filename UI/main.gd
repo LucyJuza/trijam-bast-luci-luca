@@ -11,8 +11,8 @@ func _process(delta):
 	pass
 
 
-func _on_restart_button_pressed():
-	get_tree().change_scene_to_file("res://UI/main.tscn")
+func _on_play_button_pressed():
+	get_tree().change_scene_to_file("res://scenes/grave.tscn")
 
 
 func _on_quit_button_pressed():
