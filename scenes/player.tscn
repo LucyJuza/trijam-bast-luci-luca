@@ -1,3 +1,93 @@
-[gd_scene format=3 uid="uid://bclaci0plqmfy"]
+[gd_scene load_steps=4 format=3 uid="uid://bclaci0plqmfy"]
+
+[ext_resource type="Texture2D" uid="uid://dm25uf134arnq" path="res://assets/tiles/urizen_onebit_tileset__v1d0.png" id="1_66wxb"]
+
+[sub_resource type="GDScript" id="GDScript_4a2ub"]
+script/source = "extends Node2D
+
+class_name Player
+
+const tile_size = 12
+@onready var displacement_timer : Timer = $displacement_delay
+@onready var up_ray: RayCast2D = $ray_up
+@onready var down_ray: RayCast2D = $ray_down
+@onready var left_ray: RayCast2D = $ray_left
+@onready var right_ray: RayCast2D = $ray_right
+@export var linked_tile_map: TileMap
+
+
+func _ready():
+	print(\"salut\")
+	up_ray.force_raycast_update()
+
+func _physics_process(delta):
+	var target_tile = Vector2()
+	if Input.is_action_pressed(\"right\") and displacement_timer.is_stopped() and not right_ray.is_colliding():
+		move(Vector2.RIGHT)
+		displacement_timer.start()
+	if Input.is_action_pressed(\"left\") and displacement_timer.is_stopped() and not left_ray.is_colliding():
+		move(Vector2.LEFT)
+		displacement_timer.start()
+	if Input.is_action_pressed(\"up\") and displacement_timer.is_stopped() and not up_ray.is_colliding():
+		move(Vector2.UP)
+		displacement_timer.start()
+	if Input.is_action_pressed(\"down\") and displacement_timer.is_stopped() and not down_ray.is_colliding():
+		move(Vector2.DOWN)
+		displacement_timer.start()
+	
+func move(direction: Vector2):
+	up_ray.force_raycast_update()
+	down_ray.force_raycast_update()
+	left_ray.force_raycast_update()
+	right_ray.force_raycast_update()
+	var current_tile: Vector2i = linked_tile_map.local_to_map(global_position)
+	var target_tile : Vector2i = Vector2i(
+		current_tile.x + direction.x,
+		current_tile.y + direction.y,
+	)
+	global_position.x = target_tile.x * tile_size
+	global_position.y = target_tile.y * tile_size
+	#$Sprite2D.global_position = linked_tile_map.map_to_local(current_tile)
+	print(current_tile)
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1teb"]
+atlas = ExtResource("1_66wxb")
+region = Rect2(365, 1, 12, 12)
 
 [node name="Player" type="Node2D"]
+z_index = 1
+script = SubResource("GDScript_4a2ub")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(6, 6)
+texture = SubResource("AtlasTexture_y1teb")
+
+[node name="displacement_delay" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[node name="ray_up" type="RayCast2D" parent="."]
+position = Vector2(6, 0)
+target_position = Vector2(0, -6)
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="ray_left" type="RayCast2D" parent="."]
+position = Vector2(0, 6)
+target_position = Vector2(-6, 0)
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="ray_right" type="RayCast2D" parent="."]
+position = Vector2(12, 6)
+target_position = Vector2(6, 0)
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="ray_down" type="RayCast2D" parent="."]
+position = Vector2(6, 12)
+target_position = Vector2(0, 6)
+hit_from_inside = true
+collide_with_areas = true
