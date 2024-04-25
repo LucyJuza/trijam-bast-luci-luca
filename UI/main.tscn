@@ -1,13 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnfd7roog4bbk"]
+[gd_scene load_steps=4 format=3 uid="uid://dnfd7roog4bbk"]
 
 [ext_resource type="Script" path="res://UI/main.gd" id="1_pabj8"]
+[ext_resource type="Texture2D" uid="uid://cot11cagg6x2q" path="res://assets/images/blurry_background.png" id="2_lk8ir"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6xnf0"]
-bg_color = Color(0.219608, 0.219608, 0.219608, 1)
-border_width_left = 20
-border_width_top = 20
-border_width_right = 20
-border_width_bottom = 20
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_breah"]
+texture = ExtResource("2_lk8ir")
 
 [node name="Main" type="CanvasLayer"]
 script = ExtResource("1_pabj8")
@@ -18,7 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_6xnf0")
+theme_override_styles/panel = SubResource("StyleBoxTexture_breah")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
