@@ -41,7 +41,7 @@ func _process(delta):
 	else:
 		is_tile_above_diggable = false;
 	if is_tile_above_diggable and Input.is_action_just_pressed(\"interact\") and not Global.is_digging:
-		Global.dig()
+		Global.dig(above_tile)
 	if Global.is_digging and (Input.is_action_just_pressed(\"left\") or Input.is_action_just_pressed(\"right\") or Input.is_action_just_pressed(\"up\") or Input.is_action_just_pressed(\"down\")):
 		Global.stop_digging()
 		
