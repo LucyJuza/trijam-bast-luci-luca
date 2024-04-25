@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpexv3sfbpnsv"]
+[gd_scene load_steps=7 format=3 uid="uid://cpexv3sfbpnsv"]
 
 [ext_resource type="Script" path="res://scenes/scripts/GraveScreen.gd" id="1_2rrki"]
 [ext_resource type="PackedScene" uid="uid://d3tjc1nnbuus2" path="res://scenes/grave_layers.tscn" id="2_5n0l1"]
+[ext_resource type="AudioStream" uid="uid://yyl1phqkff5e" path="res://sound/shovel.wav" id="3_1s2sl"]
+[ext_resource type="AudioStream" uid="uid://g75fdcdj27fg" path="res://sound/bones.mp3" id="4_qis8c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7e24j"]
 
@@ -50,3 +52,9 @@ offset_left = 0.12796
 offset_top = -0.105003
 offset_right = 300.128
 offset_bottom = 449.895
+
+[node name="shovel" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_1s2sl")
+
+[node name="zombie" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_qis8c")

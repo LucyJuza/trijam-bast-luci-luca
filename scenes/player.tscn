@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bclaci0plqmfy"]
+[gd_scene load_steps=5 format=3 uid="uid://bclaci0plqmfy"]
 
 [ext_resource type="Texture2D" uid="uid://dvll3f7rnfe5m" path="res://assets/tiles/urizen_onebit_tileset__v2d0.png" id="1_sxlif"]
+[ext_resource type="AudioStream" uid="uid://bm7m3crosmo8l" path="res://sound/running_gravel.wav" id="2_10p8e"]
 
 [sub_resource type="GDScript" id="GDScript_4a2ub"]
 script/source = "extends Node2D
@@ -61,6 +62,8 @@ func _physics_process(delta):
 		displacement_timer.start()
 	
 func move(direction: Vector2):
+	if not $AudioStreamPlayer.playing:
+		$AudioStreamPlayer.play()
 	up_ray.force_raycast_update()
 	down_ray.force_raycast_update()
 	left_ray.force_raycast_update()
@@ -77,7 +80,6 @@ func move(direction: Vector2):
 	if walkable_1 != null:
 		if not walkable_1.get_custom_data(\"walkable\"):
 			return
-	
 	global_position.x = target_tile.x * tile_size
 	global_position.y = target_tile.y * tile_size
 	#$Sprite2D.global_position = linked_tile_map.map_to_local(current_tile)
@@ -123,3 +125,6 @@ position = Vector2(6, 12)
 target_position = Vector2(0, 6)
 hit_from_inside = true
 collide_with_areas = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_10p8e")

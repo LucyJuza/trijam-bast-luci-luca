@@ -71,8 +71,9 @@ func dig():
 		
 		if damage_dealt >= DAMAGE_THRESHOLD:
 			damage_dealt = 0
+			$shovel.play()
 			%GraveLayers.cycle_layers()
-		
+			
 		if health < MONSTER_HP_THRESHOLD:
 			monster_spawn = randf() > health / MONSTER_HP_THRESHOLD
 		
@@ -83,6 +84,7 @@ func dig():
 		
 		if monster_spawn :
 			zombied = true
+			$zombie.play()
 			print("ZOMBIIIIIIE!!!!!!")
 			Global.stop_digging()
 	else:
