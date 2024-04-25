@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3tjc1nnbuus2"]
+
+[ext_resource type="Script" path="res://scenes/scripts/grave_layers.gd" id="1_22sfv"]
+[ext_resource type="Texture2D" uid="uid://bed3c7oc04gbu" path="res://assets/images/dirt5.png" id="2_rfuy4"]
+[ext_resource type="Texture2D" uid="uid://jqtk14bxihj0" path="res://assets/images/dirt4.png" id="3_2l4am"]
+[ext_resource type="Texture2D" uid="uid://dg4edpmnke3fb" path="res://assets/images/dirt3.png" id="4_cewwn"]
+[ext_resource type="Texture2D" uid="uid://cl1f65p4x8r0t" path="res://assets/images/dirt2.png" id="5_bquac"]
+[ext_resource type="Texture2D" uid="uid://dkcuevx4k886u" path="res://assets/images/dirt1.png" id="6_6uah5"]
+
+[node name="GraveLayers" type="TextureRect"]
+anchors_preset = -1
+anchor_right = 0.26
+anchor_bottom = 0.701
+offset_top = 4.0
+offset_right = 0.47998
+offset_bottom = -0.248016
+script = ExtResource("1_22sfv")
+
+[node name="Layer1" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(249, -1216)
+texture = ExtResource("2_rfuy4")
+offset = Vector2(150, 225)
+
+[node name="Layer2" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(663, -1213)
+texture = ExtResource("3_2l4am")
+offset = Vector2(150, 225)
+
+[node name="Layer3" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1080, -1222)
+texture = ExtResource("4_cewwn")
+offset = Vector2(150, 225)
+
+[node name="Layer4" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1443, -1213)
+texture = ExtResource("5_bquac")
+offset = Vector2(150, 225)
+
+[node name="Layer5" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1853, -1210)
+texture = ExtResource("6_6uah5")
+offset = Vector2(150, 225)
