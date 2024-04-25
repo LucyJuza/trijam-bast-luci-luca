@@ -29983,6 +29983,8 @@ texture_region_size = Vector2i(12, 12)
 tile_size = Vector2i(12, 12)
 physics_layer_0/collision_layer = 1
 physics_layer_1/collision_layer = 1
+custom_data_layer_0/name = "diggable"
+custom_data_layer_0/type = 1
 sources/2 = SubResource("TileSetAtlasSource_qhx5n")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_focd0"]
