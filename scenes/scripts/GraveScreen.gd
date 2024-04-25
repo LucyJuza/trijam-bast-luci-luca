@@ -89,5 +89,6 @@ func dig():
 			$zombie.play()
 			print("ZOMBIIIIIIE!!!!!!")
 			Global.stop_digging()
+			Global.game_over()
 	else:
 		Global.stop_digging()

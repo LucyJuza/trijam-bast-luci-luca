@@ -60,3 +60,14 @@ func update_last_dug_infos(hps,damages,zombied):
 			tomb["hps"] = hps
 			tomb["damages_dealt"] = damages 
 			tomb["zombied"] = zombied 
+
+func game_over():
+	get_tree().change_scene_to_file("res://UI/game_over.tscn")
+	
+	
+func start_game():
+	score = 0;
+	is_digging =false;
+	displacement_delay = 0.05
+	tombs = [{"pos": Vector2i(0,0), "hps": 100,"damages_dealt": 0,"zombied": false}]
+	lastDugTomb = null;
