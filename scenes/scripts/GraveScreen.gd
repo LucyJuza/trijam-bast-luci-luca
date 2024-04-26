@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+
 # Damage dealt per hit
 const DAMAGE_PER_DIG = 2.5
 # Damage needed to cycle grave layers
@@ -7,7 +8,8 @@ const DAMAGE_THRESHOLD = 25
 const MAX_HP = 100.0
 # The threshold below which monsters will have a chance to spawn
 const MONSTER_HP_THRESHOLD = 50.0
-
+@export var linked_tilemap : TileMap
+@export var player: Node2D
 # Current grave HP
 var health
 # To keep track of tomb cycles
@@ -87,6 +89,13 @@ func dig():
 			$zombie.play()
 			print("ZOMBIIIIIIE!!!!!!")
 			Global.stop_digging()
-			Global.game_over()
+			# make a zombie spawn on concerned tile
+			var posSpawnSkel = linked_tilemap.map_to_local(Global.lastDugTomb["pos"])
+			const SKEL = preload("res://scenes/skeleton.tscn")
+			var instance = SKEL.instantiate()
+			instance.global_position = posSpawnSkel
+			instance.linked_tile_map = linked_tilemap
+			instance.player = player
+			linked_tilemap.add_child(instance);
 	else:
 		Global.stop_digging()

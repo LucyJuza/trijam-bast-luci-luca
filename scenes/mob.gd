@@ -20,3 +20,7 @@ func _on_timer_timeout():
 	var next_cell = update_path()
 	if next_cell.size() > 1:
 		global_position = linked_tile_map.map_to_local(next_cell[1])
+		
+func _process(delta):
+	if (player.global_position + Vector2(6,6) == global_position):
+		Global.game_over()
