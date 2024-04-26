@@ -59,7 +59,6 @@ func update_display(current_health,current_damage_dealt,curr_zombied):
 		%GraveLayers.current_layer = 4
 		%GraveLayers.update_layers()
 	health = current_health
-	%ProgressBar.value = health
 	damage_dealt = current_damage_dealt;
 	monster_spawn = 0
 	treasure_spawn = 0
@@ -69,7 +68,6 @@ func dig():
 	if health > 0:
 		health -= DAMAGE_PER_DIG
 		damage_dealt += DAMAGE_PER_DIG
-		%ProgressBar.value = health
 		
 		if damage_dealt >= DAMAGE_THRESHOLD:
 			damage_dealt = 0

@@ -35,7 +35,6 @@ position = Vector2(6, 7)
 zoom = Vector2(4.495, 4.495)
 
 [node name="GraveScreen" parent="." instance=ExtResource("3_ft0g6")]
-visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
