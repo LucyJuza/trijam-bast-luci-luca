@@ -1,13 +1,30 @@
 [gd_scene load_steps=5 format=3 uid="uid://bs56hjrbbudxp"]
 
 [ext_resource type="PackedScene" uid="uid://bptwwwn2rrok6" path="res://scenes/grave.tscn" id="1_goc4n"]
+[ext_resource type="PackedScene" uid="uid://ljn6w3imnt76" path="res://scenes/keeper.tscn" id="2_mv24j"]
 [ext_resource type="PackedScene" uid="uid://bclaci0plqmfy" path="res://scenes/player.tscn" id="2_ylf77"]
+[ext_resource type="PackedScene" uid="uid://dmr0el6k421a6" path="res://scenes/skeleton.tscn" id="4_lvnyb"]
 [ext_resource type="PackedScene" uid="uid://cpexv3sfbpnsv" path="res://scenes/grave_screen.tscn" id="3_ft0g6"]
 [ext_resource type="Script" path="res://score.gd" id="4_1865u"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Grave" parent="." instance=ExtResource("1_goc4n")]
+
+[node name="Skeleton2" parent="Grave" node_paths=PackedStringArray("linked_tile_map", "player") instance=ExtResource("4_lvnyb")]
+position = Vector2(-127, 53)
+linked_tile_map = NodePath("..")
+player = NodePath("../Player")
+
+[node name="Skeleton" parent="Grave" node_paths=PackedStringArray("linked_tile_map", "player") instance=ExtResource("4_lvnyb")]
+position = Vector2(-167, 108)
+linked_tile_map = NodePath("..")
+player = NodePath("../Player")
+
+[node name="Keeper" parent="Grave" node_paths=PackedStringArray("linked_tile_map", "player") instance=ExtResource("2_mv24j")]
+position = Vector2(0, 121)
+linked_tile_map = NodePath("..")
+player = NodePath("../Player")
 
 [node name="Player" parent="Grave" node_paths=PackedStringArray("linked_tile_map") instance=ExtResource("2_ylf77")]
 position = Vector2(-12, -120)
