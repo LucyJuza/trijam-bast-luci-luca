@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmr0el6k421a6"]
+
+[ext_resource type="PackedScene" uid="uid://cqr8pw02vafxr" path="res://scenes/mob.tscn" id="1_qvayt"]
+[ext_resource type="Texture2D" uid="uid://dvll3f7rnfe5m" path="res://assets/tiles/urizen_onebit_tileset__v2d0.png" id="2_m5tkt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rn7s8"]
+atlas = ExtResource("2_m5tkt")
+region = Rect2(469, 118, 12, 12)
+
+[node name="Skeleton" node_paths=PackedStringArray("timer") instance=ExtResource("1_qvayt")]
+timer = NodePath("Timer")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+texture_filter = 1
+texture = SubResource("AtlasTexture_rn7s8")
+
+[node name="Timer" type="Timer" parent="." index="1"]
+autostart = true

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqr8pw02vafxr"]
+
+[ext_resource type="Script" path="res://scenes/mob.gd" id="1_q6wuw"]
+
+[node name="Mob" type="Node2D"]
+script = ExtResource("1_q6wuw")
