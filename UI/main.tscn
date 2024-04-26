@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnfd7roog4bbk"]
+
+[ext_resource type="Script" path="res://UI/main.gd" id="1_pabj8"]
+[ext_resource type="Texture2D" uid="uid://cot11cagg6x2q" path="res://assets/images/blurry_background.png" id="2_lk8ir"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_breah"]
+texture = ExtResource("2_lk8ir")
+
+[node name="Main" type="CanvasLayer"]
+script = ExtResource("1_pabj8")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_breah")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="Rows" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/Rows"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 90
+text = "START GAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer/Rows"]
+layout_mode = 2
+
+[node name="Rows" type="VBoxContainer" parent="PanelContainer/MarginContainer/Rows/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="PlayButton" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/Rows"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 90
+text = " PLAY GAME "
+
+[node name="QuitButton" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/Rows"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 90
+text = "QUIT"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/Rows/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/Rows/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://ljn6w3imnt76" path="res://scenes/keeper.tscn" id="2_mv24j"]
 [ext_resource type="PackedScene" uid="uid://bclaci0plqmfy" path="res://scenes/player.tscn" id="2_ylf77"]
 [ext_resource type="PackedScene" uid="uid://dmr0el6k421a6" path="res://scenes/skeleton.tscn" id="4_lvnyb"]
+[ext_resource type="PackedScene" uid="uid://cpexv3sfbpnsv" path="res://scenes/grave_screen.tscn" id="3_ft0g6"]
+[ext_resource type="Script" path="res://score.gd" id="4_1865u"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -31,3 +33,14 @@ linked_tile_map = NodePath("..")
 [node name="Camera2D" type="Camera2D" parent="Grave/Player"]
 position = Vector2(6, 7)
 zoom = Vector2(4.495, 4.495)
+
+[node name="GraveScreen" parent="." instance=ExtResource("3_ft0g6")]
+visible = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="score" type="Label" parent="CanvasLayer"]
+offset_right = 83.0
+offset_bottom = 23.0
+text = "qhjfoawifb"
+script = ExtResource("4_1865u")
